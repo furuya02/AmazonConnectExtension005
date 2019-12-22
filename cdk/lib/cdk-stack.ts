@@ -4,14 +4,11 @@ import * as s3  from '@aws-cdk/aws-s3';
 import * as iam from '@aws-cdk/aws-iam';
 import * as sqs from '@aws-cdk/aws-sqs';
 import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
-import fs = require('fs');
 
 // 識別するためのタグ(バケット名にも使用されるので_は使えない)
 const tag = "connect-ex-voicemail";
 // Lambdaのタイムゾーン
 const timeZone = 'Asia/Tokyo';
-// // Amazon Connectの設定を転記して下さい。
-// const wavBucketName = 'connect-ea747ad00a36';
 
 export class AmazonConnectExtension005Stack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -20,34 +17,11 @@ export class AmazonConnectExtension005Stack extends cdk.Stack {
     // 出力を保存するバケット名
     const outputBucketName = tag + "-" + this.account;
 
-    // 録音データが保存されるバケット
-    // const wavBucket = s3.Bucket.fromBucketName(this, "wavBucket", wavBucketName);
     //出力を保存するバケット
     const outputBucket = new s3.Bucket(this, tag + '-outputBucket', {
       bucketName: outputBucketName,
       removalPolicy: cdk.RemovalPolicy.DESTROY
     })
-
- 
-
-/*
-    readonly queueName?: string;
-    readonly retentionPeriod?: Duration;
-    readonly deliveryDelay?: Duration;
-    readonly maxMessageSizeBytes?: number;
-    readonly receiveMessageWaitTime?: Duration;
-    readonly visibilityTimeout?: Duration;
-    readonly deadLetterQueue?: DeadLetterQueue;
-    readonly encryption?: QueueEncryption;
-    readonly encryptionMasterKey?: kms.IKey;
-    readonly dataKeyReuse?: Duration;
-    readonly fifo?: boolean;
-
-    readonly contentBasedDeduplication?: boolean;
-    */
-    // const topic = new sns.Topic(this, 'CdkWorkshopTopic');
-    // topic.addSubscription(new subs.SqsSubscription(queue));
-
 
     // 録音終了時に諸元だけをSQSへ保存する
     const queue = new sqs.Queue(this, tag + '-queue', {
@@ -71,7 +45,6 @@ export class AmazonConnectExtension005Stack extends cdk.Stack {
       actions: ['sqs:SendMessage'],
       resources: [queue.queueArn]
     }));
-
 
     // SQSから起動されKinesisVideoStreamsのRAWデータをWAVに変換するファンクション
     const rawToWavFunction = new lambda.Function(this, tag + '-rawToWav', {
@@ -106,31 +79,10 @@ export class AmazonConnectExtension005Stack extends cdk.Stack {
       batchSize: 10 
     }));
 
-    // - arn:aws:iam::aws:policy/AmazonS3FullAccess
-    // - arn:aws:iam::aws:policy/AmazonKinesisVideoStreamsReadOnlyAccess
-    // - arn:aws:iam::aws:policy/AmazonSQSFullAccess
-
-  
-    // // S3にWAVが保存された時のイベントにトリガーを仕掛けるファンクション
-    // const setNotificationFunction = new lambda.SingletonFunction(this, tag + '-setNotificationFunction', {
-    //   uuid: 'fa394ca7-e346-4a71-9fc1-0e9d03e7edd0',
-    //   code: new lambda.InlineCode(fs.readFileSync('src/setNotificationFunction/index.js', { encoding: 'utf-8' })),
-    //   handler: 'index.handler',
-    //   timeout: cdk.Duration.seconds(300),
-    //   runtime: lambda.Runtime.NODEJS_8_10,
-    // });
-    
-    // // イベントにトリガーを追加削除する権限付与
-    // setNotificationFunction.addToRolePolicy(new iam.PolicyStatement({
-    //   resources: [wavBucket.bucketArn],
-    //   actions: ['s3:*'] }
-    // ));
-
-
-    // // 出力に設定ファイル用バケット名を表示
-    // new cdk.CfnOutput(this, "TranscribeBucket", {
-    //   value: outputBucket.bucketName
-    // });
+    // 出力に設定ファイル用バケット名を表示
+    new cdk.CfnOutput(this, "OutputBucket", {
+      value: outputBucket.bucketName
+    });
   }
 }
 
