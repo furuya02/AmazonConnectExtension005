@@ -1,0 +1,20 @@
+{
+    "Records": [
+        {
+            "messageId": "03e32cf9-8832-4211-ac90-624d22ed247d",
+            "receiptHandle": "AQEB2FsG501zifgvfTRvAqbQMYuf+T+Wu9VLpojaOOfGHiZa7CNZVL+G7pRp3Ct7umEW4a49OaXW5jNP4ZfoffdXpC0BJasJk0u05FPNvQwS0JmiuDVMmJB5n9477aOfsmJ3r7D66M9ODv8u5Na5Ekaxnl38UOAiMfBXGCdmX4/04sWgOfkz4YZQ0V6A7xyCn7w/axWTk0hGBtumjXvIUL+bkGJVHc+0gixZhDZSFMPVRtbraUedu9wN+jrzq/QMU3mkGV44eeC1H2RwZhfwInaCRbrSq6DLfw3V6J71vxvjRxk8hcbLzd38hWrXutK5UvzBfw/rBphsJM9aGteniTLFChZuTJmPnRNaYnzkgn+a8AYuGJPV8+0NQGMBgYsqa91Oi81igaf521WDWuh8GMlDE5CD/M9rIajzd+g+zD9kZdo=",
+            "body": "{\"Details\":{\"ContactData\":{\"Attributes\":{},\"Channel\":\"VOICE\",\"ContactId\":\"63b71cfb-5e4b-43ab-a65e-2a3afdc24ee5\",\"CustomerEndpoint\":{\"Address\":\"+8111112222\",\"Type\":\"TELEPHONE_NUMBER\"},\"InitialContactId\":\"63b71cfb-5e4b-43ab-a65e-2a3afdc24ee5\",\"InitiationMethod\":\"INBOUND\",\"InstanceARN\":\"arn:aws:connect:ap-northeast-1:xxxxxxxxx:instance/7d0290d7-aa59-458c-a294-ef397afa108d\",\"MediaStreams\":{\"Customer\":{\"Audio\":{\"StartFragmentNumber\":\"91343852333181432392682062625241045887828200217\",\"StartTimestamp\":\"1577033981685\",\"StopFragmentNumber\":\"91343852333181432427344383725231695175130622834\",\"StopTimestamp\":\"1577033989595\",\"StreamARN\":\"arn:aws:kinesisvideo:ap-northeast-1:xxxxxxxxx:stream/sample-connect-sample0022-contact-18aaeabe-ca63-4e8a-a19c-ab254572edde/1577033808031\"}}},\"PreviousContactId\":\"63b71cfb-5e4b-43ab-a65e-2a3afdc24ee5\",\"Queue\":null,\"SystemEndpoint\":{\"Address\":\"+818005003891\",\"Type\":\"TELEPHONE_NUMBER\"}},\"Parameters\":{}},\"Name\":\"ContactFlowEvent\"}",
+            "attributes": {
+                "ApproximateReceiveCount": "1",
+                "SentTimestamp": "1577034385920",
+                "SenderId": "AROAWMOBC4JXB4SQLQUEU:connect-ex-voicemail-sendSQS",
+                "ApproximateFirstReceiveTimestamp": "1577034385922"
+            },
+            "messageAttributes": {},
+            "md5OfBody": "d31ab640e9d30e136db4e479b775b26f",
+            "eventSource": "aws:sqs",
+            "eventSourceARN": "arn:aws:sqs:ap-northeast-1:xxxxxxxxx:connect-ex-voicemail-queue",
+            "awsRegion": "ap-northeast-1"
+        }
+    ]
+}

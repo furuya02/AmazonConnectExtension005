@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "デバッグ実行",
+            "program": "${workspaceRoot}/.vscode/drive.js",
+            "cwd": "${workspaceRoot}/",
+            "outFiles": [ "${workspaceRoot}/*.js" ], 
+            "env": {
+                "IsLocal": "Yes",
+                "TZ": "Asia/Tokyo",
+                "REGION": "ap-northeast-1",
+                "BUCKET_NAME": "connect-ex-voicemail-xxxxxxxxxxxx"
+            },
+            "args": [
+                "event.json",
+            ]
+        }
+    ]
+}
+

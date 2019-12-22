@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "デバッグ実行",
+            "program": "${workspaceRoot}/.vscode/drive.js",
+            "cwd": "${workspaceRoot}/",
+            "outFiles": [ "${workspaceRoot}/*.js" ], 
+            "env": {
+                "IsLocal": "Yes",
+                "TZ": "Asia/Tokyo",
+                "QUEUE_URL": "https://sqs.ap-northeast-1.amazonaws.com/439028474478/connect-ex-voicemail-queue"
+            },
+            "args": [
+                "event.json",
+            ]
+        }
+    ]
+}
+

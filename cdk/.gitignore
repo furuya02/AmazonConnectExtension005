@@ -1,0 +1,8 @@
+*.js
+*.d.ts
+node_modules
+!src/src/rawToWav/.vscode/drive.js
+!src/src/sendSQS/.vscode/drive.js
+# CDK asset staging directory
+.cdk.staging
+cdk.out
