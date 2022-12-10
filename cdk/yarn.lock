@@ -533,7 +533,7 @@ available-typed-arrays@^1.0.5:
   resolved "https://registry.yarnpkg.com/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz#92f95616501069d07d10edb2fc37d3e1c65123b7"
   integrity sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==
 
-aws-cdk@^1.19.0:
+aws-cdk@^1.182.0:
   version "1.182.0"
   resolved "https://registry.yarnpkg.com/aws-cdk/-/aws-cdk-1.182.0.tgz#ddbcd75309c7ac93b8904b15ff74d3e8c948daa6"
   integrity sha512-fjP3ICX9ve+Xo6UT/cv8TOMzPZBMDcEO7nABr6pxpx5AKObZBeuSaRNmFSYOeTjUgCPZFdI9UT91+z9TSYvQOg==
