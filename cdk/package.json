@@ -17,12 +17,12 @@
   },
   "dependencies": {
     "@aws-cdk/aws-iam": "^1.19.0",
-    "@aws-cdk/aws-lambda": "^1.19.0",
-    "@aws-cdk/aws-lambda-event-sources": "^1.18.0",
+    "@aws-cdk/aws-lambda": "^1.182.0",
+    "@aws-cdk/aws-lambda-event-sources": "^1.182.0",
     "@aws-cdk/aws-s3": "^1.19.0",
-    "@aws-cdk/aws-s3-notifications": "^1.18.0",
+    "@aws-cdk/aws-s3-notifications": "^1.182.0",
     "@aws-cdk/core": "^1.19.0",
-    "@aws-cdk/custom-resources": "^1.18.0",
+    "@aws-cdk/custom-resources": "^1.182.0",
     "aws-sdk": "^2.595.0",
     "ebml": "^3.0.0",
     "source-map-support": "^0.5.9"
