@@ -23,7 +23,7 @@
     "@aws-cdk/aws-s3-notifications": "^1.182.0",
     "@aws-cdk/core": "^1.19.0",
     "@aws-cdk/custom-resources": "^1.182.0",
-    "aws-sdk": "^2.595.0",
+    "aws-sdk": "^2.814.0",
     "ebml": "^3.0.0",
     "source-map-support": "^0.5.9"
   }
